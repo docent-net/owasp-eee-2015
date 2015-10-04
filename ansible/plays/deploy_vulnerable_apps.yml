@@ -1,0 +1,7 @@
+---
+# Deploy vulnerable apps on hackademic host
+- hosts: vm-hackademic.owasp.eee
+  sudo: yes
+  roles:
+  - lamp
+  - vulnerable_apps

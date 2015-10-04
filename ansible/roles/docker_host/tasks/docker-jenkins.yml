@@ -1,0 +1,9 @@
+---
+- name: Run docker jenkins
+  docker: >
+    name=jenkins
+    insecure_registry=yes
+    image=docker.io/jenkins
+    state=started
+    expose=8080
+    ports="8080:8080"

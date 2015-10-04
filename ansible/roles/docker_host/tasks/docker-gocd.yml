@@ -1,0 +1,9 @@
+---
+- name: Run docker gocd
+  docker: >
+    name=gocd
+    insecure_registry=yes
+    image=docker.io/gocd/gocd-server
+    state=started
+    expose=8153
+    ports="8153:8153"

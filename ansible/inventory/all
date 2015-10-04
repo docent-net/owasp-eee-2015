@@ -1,0 +1,6 @@
+[all]
+vm-docker.owasp.eee
+vm-prod.owasp.eee
+vm-jenkins.owasp.eee
+vm-gocd.owasp.eee
+vm-hackademic.owasp.eee

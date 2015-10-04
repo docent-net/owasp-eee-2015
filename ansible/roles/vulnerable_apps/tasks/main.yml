@@ -1,0 +1,29 @@
+---
+# Deploy vulnerable apps
+- name: Create apps dir
+  file: >
+    path={{ public_dir }}/vulnerable
+    state=directory
+    owner=apache
+    group=apache
+    mode=0755
+    
+- name: Deploy XSS app
+  copy: >
+    path=xss.php
+    dest=/var/www/html/vulnerable/xss.php
+    owner=apache
+    group=apache
+    mode=0644
+
+- name: Clone hackademic repo
+  git: >
+    repo=https://github.com/Hackademic/hackademic.git
+    dest=/var/www/html/hackademic
+
+- name: chown hackademic
+  file: >
+    path=/var/www/html/hackademic
+    owner=apache
+    group=apache
+    recurse=yes

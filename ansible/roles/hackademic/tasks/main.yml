@@ -1,0 +1,17 @@
+---
+# Deploy OWASP Hackademic
+# https://github.com/Hackademic/hackademic
+- name: Install git
+  yum: name=git state=latest
+
+- name: Clone hackademic repo
+  git: >
+    repo=https://github.com/Hackademic/hackademic.git
+    dest=/var/www/hackademic
+
+- name: chown hackademic
+  file: >
+    path=/var/www/html/hackademic
+    owner=apache
+    group=apache
+    recurse=yes

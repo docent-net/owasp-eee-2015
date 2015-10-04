@@ -1,0 +1,12 @@
+---
+- include: docker-engine.yml
+  tags: docker-engine
+
+- include: docker-registry.yml
+  tags: docker-registry
+
+- include: docker-jenkins.yml
+  tags: docker-jenkins
+
+- include: docker-gocd.yml
+  tags: docker-gocd

@@ -1,0 +1,21 @@
+---
+- name: Install required pkgs
+  yum: >
+    name={{ item }}
+    state=latest
+  with_items:
+  - docker
+  - epel-release
+- name: Install python-pip
+  yum: >
+    name=python-pip
+    state=latest
+- name: Ensure docker is enabled and started
+  service:
+    name=docker
+    enabled=yes
+    state=restarted
+- name: Install docker-py as a workaround for Ansible issue
+  pip: >
+    name=docker-py
+    version=1.2.3

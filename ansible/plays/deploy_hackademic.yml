@@ -1,0 +1,7 @@
+---
+# Deploy whole hackademic VM & service
+- hosts: vm-hackademic.owasp.eee
+  sudo: yes
+  roles:
+  - lamp
+  - hackademic
