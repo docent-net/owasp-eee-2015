@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>ssh root@vm-docker.owasp.eee &apos;docker rm dependency-check-updated ; docker run -i --name dependency-check-updated -v /root/jenkins/usr/lib/jenkins:/opt/dependency-check/scan-jobs 127.0.0.1:5000/dependency-check-updated /opt/dependency-check/bin/dependency-check.sh --noupdate --project test_jenkins --format ALL --out /opt/dependency-check/scan-jobs/ --scan /opt/dependency-check ; exit 0&apos;</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

@@ -1,0 +1,6 @@
+---
+- include: deploy_jenkins.yml
+  tags: deploy_jenkins
+
+- include: deploy_jenkins_jobs.yml
+  tags: deploy_jenkins_jobs

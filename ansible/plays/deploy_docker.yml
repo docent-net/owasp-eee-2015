@@ -1,0 +1,6 @@
+---
+# Deploy docker on docker host
+- hosts: vm-docker.owasp.eee
+  sudo: yes
+  roles:
+  - { role: docker_host }

@@ -7,23 +7,15 @@
     owner=apache
     group=apache
     mode=0755
-    
-- name: Deploy XSS app
+
+- name: Deploy apps
   copy: >
-    path=xss.php
-    dest=/var/www/html/vulnerable/xss.php
+    src={{ item }}.php
+    dest={{ public_dir }}/vulnerable/{{ item }}.php
     owner=apache
     group=apache
     mode=0644
-
-- name: Clone hackademic repo
-  git: >
-    repo=https://github.com/Hackademic/hackademic.git
-    dest=/var/www/html/hackademic
-
-- name: chown hackademic
-  file: >
-    path=/var/www/html/hackademic
-    owner=apache
-    group=apache
-    recurse=yes
+  with_items:
+  - xss
+  - traversal
+  - sqli

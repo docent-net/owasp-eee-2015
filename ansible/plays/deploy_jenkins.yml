@@ -1,0 +1,6 @@
+---
+# Deploy jenkins on jenkins host
+- hosts: vm-jenkins.owasp.eee
+  sudo: yes
+  roles:
+  - { role: jenkins, tags: jenkins }

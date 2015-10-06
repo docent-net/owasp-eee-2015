@@ -1,0 +1,34 @@
+- name: Remove jobs
+  file: >
+    path={{ jenkins_jobs }}/{{ item }}
+    state=absent
+  with_items:
+  - zap
+  - dependency-check
+
+- name: Create jobs directories
+  file: >
+    path={{ jenkins_jobs }}/{{ item }}
+    owner=jenkins
+    group=jenkins
+    state=directory
+    mode=0700
+  with_items:
+  - zap
+  - dependency-check
+
+- name: Copy job files
+  copy: >
+    src={{ item }}/config.xml
+    dest={{ jenkins_jobs }}/{{ item }}/config.xml
+    owner=jenkins
+    group=jenkins
+  with_items:
+  - zap
+  - dependency-check
+
+- name: Reload Jenkins configuration
+  uri: >
+    method=POST
+    url=http://vm-jenkins.owasp.eee:8080/reload
+    status_code=302

@@ -1,8 +1,9 @@
 ---
+- name: Install docker registry
+  yum: name=docker-registry state=latest
+
 - name: Run docker registry
-  docker: >
-    name=registry
-    image=registry
+  service; >
+    name=docker-registry
+    enabled=true
     state=started
-    expose=5000
-    ports="5000:5000"

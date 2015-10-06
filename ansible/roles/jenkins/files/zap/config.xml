@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>ssh root@vm-docker.owasp.eee &apos;docker rm zap-cli ; docker run -u zap --add-host=vm-hackademic.owasp.eee:192.168.122.14 --name zap-cli -i zap-cli zap-cli quick-scan -sc --spider --start-options &quot;-config api.disablekey=true&quot; &quot;http://vm-hackademic.owasp.eee/vulnerable/sqli.php?ad=3&quot;; exit 0&apos;</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

@@ -7,11 +7,12 @@
 - name: Clone hackademic repo
   git: >
     repo=https://github.com/Hackademic/hackademic.git
-    dest=/var/www/hackademic
+    dest={{ public_dir }}/hackademic
+    force=yes
 
 - name: chown hackademic
   file: >
-    path=/var/www/html/hackademic
+    path={{ public_dir }}/hackademic
     owner=apache
     group=apache
     recurse=yes

@@ -3,5 +3,5 @@
 - hosts: vm-hackademic.owasp.eee
   sudo: yes
   roles:
-  - lamp
-  - vulnerable_apps
+  - { role: lamp, tags: lamp }
+  - { role: vulnerable_apps, tags: apps }
