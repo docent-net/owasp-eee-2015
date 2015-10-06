@@ -3,7 +3,7 @@
   yum: name=docker-registry state=latest
 
 - name: Run docker registry
-  service; >
+  service: >
     name=docker-registry
     enabled=true
     state=started
